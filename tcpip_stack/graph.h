@@ -15,10 +15,17 @@ struct link_
   unsigned int	cost;
 };
 
+struct node_
+{
+  char		node_name[NODE_NAME_SIZE];
+  interface_t	*intf[MAX_INTF_PER_NODE];
+  glthread_t 	graph_glue;
+};
+
 typedef struct graph_
 {
-  char topology_name[32];
-  glthread_t node_list;
+  char 		topology_name[32];
+  glthread_t 	node_list;
 };
 
 #endif // GRAPH_H
