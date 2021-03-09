@@ -1,5 +1,6 @@
 #ifndef 	__GRAPH_H__
 #define 	__GRAPH_H__
+
 #include 	"gluethread/glthread.h"
 // Define Constants
 #define 	NODE_NAME_SIZE    16
