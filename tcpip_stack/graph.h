@@ -30,6 +30,8 @@ struct 		node_
   glthread_t 	graph_glue;
 };
 
+GLTHREAD_TO_STRUCT(graph_glue_to_node, node_t, graph_glue);
+
 typedef struct 	graph_
 {
   char 		topology_name[32];
