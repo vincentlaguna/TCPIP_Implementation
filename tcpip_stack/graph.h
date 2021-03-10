@@ -47,5 +47,5 @@ void insert_link_between_two_nodes(node_t       *node1,
                                    char         *from_if_name,
                                    char         *to_if_name,
                                    unsigned int cost);
-
+// Will need helper functions here
 #endif // __GRAPH_H__
