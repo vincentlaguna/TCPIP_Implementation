@@ -42,5 +42,6 @@ typedef struct 	graph_
 node_t          *create_graph_node(graph_t *graph, char *node_name);
 graph_t         *create_new_graph(char *topology_name);
 
+// Need to write function for inserting a link between two nodes
 
 #endif // __GRAPH_H__
