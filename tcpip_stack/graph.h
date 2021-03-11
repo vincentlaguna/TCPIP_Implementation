@@ -47,6 +47,8 @@ void insert_link_between_two_nodes(node_t       *node1,
                                    char         *from_if_name,
                                    char         *to_if_name,
                                    unsigned int cost);
+// For first assignment: get the available slot for the interface node
+
 // Will need helper functions here
 // And display routines...
 #endif // __GRAPH_H__
