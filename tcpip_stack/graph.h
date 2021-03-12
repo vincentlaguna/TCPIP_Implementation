@@ -48,15 +48,20 @@ void insert_link_between_two_nodes(node_t       *node1,
                                    char         *to_if_name,
                                    unsigned int cost);
 // Helper Functions
-static inline int get_node_intf_available_slot(node_t, *)
+static inline node_t *get_nbr_node(interface_t *interface)
+{
+  
+}
 // For first assignment: get the available slot for the interface node
-static inline node_t *get_nbr_node(interface_t *interface);
+static inline int get_node_intf_available_slot(node_t, *node)
 {
   int i;
   
-  for ()
+  for (i = 0; i < MAX_INTF_PER_NODE; i++)
   {
-    
+    if (node->intf[i] == NULL)
+      return node->intf[i];
+    continue;
   }
   return -1;
 }
