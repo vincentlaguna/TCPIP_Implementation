@@ -47,8 +47,10 @@ void insert_link_between_two_nodes(node_t       *node1,
                                    char         *from_if_name,
                                    char         *to_if_name,
                                    unsigned int cost);
-// For first assignment: get the available slot for the interface node
+// Helper Functions
 static inline int get_node_intf_available_slot(node_t, *)
+// For first assignment: get the available slot for the interface node
+static inline node_t *get_nbr_node(interface_t *interface);
 {
   int i;
   
