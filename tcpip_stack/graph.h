@@ -50,7 +50,12 @@ void insert_link_between_two_nodes(node_t       *node1,
 // Helper Functions
 static inline node_t *get_nbr_node(interface_t *interface)
 {
+  link_t *pLink = interface->link;
   
+  if (&pLink->intf1 == interface)
+    return pLink->intf2.att_node;
+  else
+    return pLink->intf1.att_node;
 }
 // For first assignment: get the available slot for the interface node
 // This still needs testing of some sort...
