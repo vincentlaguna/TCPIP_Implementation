@@ -66,7 +66,8 @@ static inline int get_node_intf_available_slot(node_t, *node)
   for (i = 0; i < MAX_INTF_PER_NODE; i++)
   {
     if (node->intf[i] == NULL)
-      return node->intf[i];
+      //return node->intf[i];
+      return i;
     continue;
   }
   return -1;
