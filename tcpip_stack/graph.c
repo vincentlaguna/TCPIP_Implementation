@@ -22,3 +22,8 @@ node_t  *create_graph_node(graph_t *graph, char *node_name)
   init_glthread(&graph->node_list, &node->graph_glue);
   return node;
 }
+
+void insert_link_between_two_nodes()
+{
+  
+}
