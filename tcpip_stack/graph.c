@@ -25,5 +25,5 @@ node_t  *create_graph_node(graph_t *graph, char *node_name)
 
 void insert_link_between_two_nodes()
 {
-  
+  link_t *link = calloc(1, sizeof(link_t));
 }
