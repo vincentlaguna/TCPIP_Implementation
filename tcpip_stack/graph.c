@@ -30,4 +30,6 @@ void insert_link_between_two_nodes(node_t *node1,
                                    unsigned int cost)
 {
   link_t *link = calloc(1, sizeof(link_t));
+  // Set interface properties
+  
 }
