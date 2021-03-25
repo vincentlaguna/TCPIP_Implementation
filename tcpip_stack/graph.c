@@ -38,5 +38,7 @@ void insert_link_between_two_nodes(node_t *node1,
   
   link->intf1.att_node = node1;
   link->intf2.att_node = node2;
+  link->cost = cost;
   
+  int empty_intf_slot;
 }
