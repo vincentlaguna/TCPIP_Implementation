@@ -31,5 +31,5 @@ void insert_link_between_two_nodes(node_t *node1,
 {
   link_t *link = calloc(1, sizeof(link_t));
   // Set interface properties
-  
+  strncpy(link->intf1.if_name, from_if_name, IF_NAME_SIZE);
 }
