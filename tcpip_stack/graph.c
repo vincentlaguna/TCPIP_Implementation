@@ -36,4 +36,7 @@ void insert_link_between_two_nodes(node_t *node1,
   strncpy(link->intf2.if_name, to_if_name, IF_NAME_SIZE);
   link->intf2.if_name[IF_NAME_SIZE] = '\0';
   
+  link->intf1.att_node = node1;
+  link->intf2.att_node = node2;
+  
 }
