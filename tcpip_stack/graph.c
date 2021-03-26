@@ -41,4 +41,5 @@ void insert_link_between_two_nodes(node_t *node1,
   link->cost = cost;
   
   int empty_intf_slot;
+  // Plugin interface ends into Node
 }
