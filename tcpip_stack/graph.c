@@ -44,4 +44,7 @@ void insert_link_between_two_nodes(node_t *node1,
   // Plugin interface ends into Node*
   empty_intf_slot = get_node_intf_available_slot(node1);
   node1->intf1[empty_intf_slot] = &link->intf1;
+  
+  empty_intf_slot = get_node_intf_available_slot(node2);
+  node2->intf2[empty_intf_slot] = &link->intf2;
 }
