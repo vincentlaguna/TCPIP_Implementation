@@ -42,4 +42,5 @@ void insert_link_between_two_nodes(node_t *node1,
   
   int empty_intf_slot;
   // Plugin interface ends into Node
+  
 }
