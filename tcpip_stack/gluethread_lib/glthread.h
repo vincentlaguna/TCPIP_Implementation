@@ -1,6 +1,9 @@
 #ifndef             __GLUETHREAD_LIB_H__
 #define             __GLUETHREAD_LIB_H__
 
+#define             IS_GLTHREAD_LIST_EMPTY(glthreadptr)           \
+                    ((glthreadptr)->right == 0 && (glthreadptr)->left == 0)
+
 typedef struct      _glthread
 {
   struct _glthread  *pLeft;
