@@ -1,13 +1,22 @@
 #ifndef             __GLUETHREAD_LIB_H__
 #define             __GLUETHREAD_LIB_H__
 
-#define             IS_GLTHREAD_LIST_EMPTY(glthreadptr)           \
+#define             IS_GLTHREAD_LIST_EMPTY(glthreadptr)                                                                 \
                     ((glthreadptr)->right == 0 && (glthreadptr)->left == 0)
+                    
+#define             GLTHREAD_TO_STRUCT(fn_name, structure_name, field_name)                                             \
+                    static inline structure_name *fn_name(glthread_t *glthreadptr)                                      \
+                    {                                                                                                   \
+                      return (structure_name *)((char *)(glthreadptr) - (char *)&(((structure_name *)0)->field_name));  \
+                    }
+                    // Delete safe loop
+                    // Normal continue and break can be used with this loop macro
+#define             BASE(glthreadptr) ((glthreadptr)->right)
 
 typedef struct      _glthread
 {
-  struct _glthread  *pLeft;
-  struct _glthread  *pRight;
+  struct _glthread  *left;
+  struct _glthread  *right;
 }                   glthread_t;
 
 void glthread_add_next(glthread_t *base_glthread, glthread_t *new_glthread);
