@@ -13,6 +13,22 @@
                     // Normal continue and break can be used with this loop macro
 #define             BASE(glthreadptr) ((glthreadptr)->right)
 
+#define             ITERATE_GLTHREAD_BEGIN(glthreadptrstart, glthreadptr)       \
+                    {                                                           \
+                      glthread_t *_glthread_ptr = NULL;                         \
+                      glthreadptr = BASE(glthreadptrstart);                     \
+                      for (; glthreadptr != NULL; glthreadptr = _glthread_ptr)  \
+                      {                                                         \
+                        _glthread_ptr = (glthreadptr)->right;
+                        
+#define                 ITERATE_GLTHREAD_END(glthreadptrstart, glthreadptr)     \
+
+                      }                                                         \
+                    }
+
+#define             GLTHREAD_GET_USER_DATA_FROM_OFFSET(glthreadptr, offset)     \
+                    (void *)((char *)(glthreadptr) - offset)
+
 typedef struct      _glthread
 {
   struct _glthread  *left;
