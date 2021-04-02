@@ -43,3 +43,5 @@ void remove_glthread(glthread_t *glthread);
 
 void init_glthread(glthread_t *glthread);
 
+void delete_glthread_list(glthread_t *base_glthread);
+
