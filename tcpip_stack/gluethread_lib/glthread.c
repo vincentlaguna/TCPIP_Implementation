@@ -57,5 +57,24 @@ void    remove_glthread(glthread_t *curr_glthread)
   {
     curr_glthread->left->right   =  NULL;
     curr_glthread->left          =  NULL;
+    return;
   }
+  
+  curr_glthread->left->right     =  curr_glthread->right;
+  curr_glthread->right->left     =  curr_glthread->left;
+  curr_glthread->left            =  0;
+  curr_glthread->right           =  0;
 }
+
+void    delete_glthread_list(glthread_t *base_glthread)
+{
+  glthread_t glthreadptr         =  NULL;
+  
+  ITERATE_GLTHREAD_BEGIN(base_glthread, glthreadptr)
+  {
+    remove_glthread(glthreadptr);
+  }
+  ITERATE_GLTHREAD_END(base_glthread, glthreadptr);
+}
+
+unsigned int    gl
