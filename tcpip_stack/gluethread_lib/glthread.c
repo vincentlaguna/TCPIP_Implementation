@@ -164,3 +164,13 @@ void    glthread_priority_insert(glthread_t *base_glthread,
   // Add in the end
   glthread_add_next(prev, glthread);
 }
+
+#if 0
+  void *gl_thread_search(glthread_t *base_glthread,
+                         void *(*thread_to_struct_fn)(glthread_t *),
+                         void *key,
+                         int (*comparison_fn)(void *, void *))
+  {
+    return NULL;
+  }
+#endif
