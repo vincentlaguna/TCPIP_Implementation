@@ -85,3 +85,13 @@ void  dump_node(node_t *node)
     dump_interface(intf);
   }
 }
+
+void  dump_interface(interface_t *interface)
+{
+  link_t *link                      =  interface->link;
+  node_t *nbr_node                  =  get_nbr_node(interface);
+  
+  printf(" Local Node: %s, Interface Name = %s, Nbr Node %s, cost = %u\n",
+           interface->att_node->node_name,
+           interface->if_name, nbr_node->node_name, link->cost);
+}
