@@ -42,13 +42,13 @@ typedef struct 	graph_
 node_t          *create_graph_node(graph_t *graph, char *node_name);
 graph_t         *create_new_graph(char *topology_name);
 
-void insert_link_between_two_nodes(node_t       *node1,
-                                   node_t       *node2,
-                                   char         *from_if_name,
-                                   char         *to_if_name,
-                                   unsigned int cost);
+void  insert_link_between_two_nodes(node_t       *node1,
+                                    node_t       *node2,
+                                    char         *from_if_name,
+                                    char         *to_if_name,
+                                    unsigned int cost);
 // Helper Functions
-static inline node_t *get_nbr_node(interface_t *interface)
+static inline   node_t *get_nbr_node(interface_t *interface)
 {
   link_t *pLink = interface->link;
   
@@ -59,7 +59,7 @@ static inline node_t *get_nbr_node(interface_t *interface)
 }
 // For first assignment: get the available slot for the interface node
 // This still needs testing of some sort...
-static inline int get_node_intf_available_slot(node_t, *node)
+static inline int   get_node_intf_available_slot(node_t, *node)
 {
   int i;
   
@@ -72,6 +72,11 @@ static inline int get_node_intf_available_slot(node_t, *node)
   }
   return -1;
 }
-// Will need helper functions here
-// And display routines...
+// Display Routines
+void  dump_graph(graph_t *graph);
+
+void  dump_node(node_t *node);
+
+void  dump_interface(interface_t *interface);
+
 #endif // __GRAPH_H__
