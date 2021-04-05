@@ -1,7 +1,7 @@
-#include  <stdio.h>
-#include  <stdlib.h>
-#include  <string.h>
-#include  "graph.h"
+#include                        <stdio.h>
+#include                        <stdlib.h>
+#include                        <string.h>
+#include                        "graph.h"
 
 graph_t   *create_new_graph(char *topology_name)
 {
@@ -36,13 +36,13 @@ void insert_link_between_two_nodes(node_t *node1,
   strncpy(link->intf2.if_name, to_if_name, IF_NAME_SIZE);
   link->intf2.if_name[IF_NAME_SIZE] = '\0';
   // Set back pointer to link to access the neighbour node on any given interface
-  link->intf1.link = link; 
-  link->intf2.link = link;
+  link->intf1.link              =  link; 
+  link->intf2.link              =  link;
   // Attach the interface to the node to wich each interface has been plugged in
-  link->intf1.att_node = node1; 
-  link->intf2.att_node = node2; 
+  link->intf1.att_node          =  node1; 
+  link->intf2.att_node          =  node2; 
   
-  link->cost = cost;
+  link->cost                    =  cost;
   
   int empty_intf_slot;
   // Plugin interface ends into Node*
@@ -51,4 +51,10 @@ void insert_link_between_two_nodes(node_t *node1,
   
   empty_intf_slot = get_node_intf_available_slot(node2);
   node2->intf2[empty_intf_slot] = &link->intf2;
+}
+
+void dump_graph(graph_t *graph)
+{
+  glthread_t  *curr;
+  node_t      *node;
 }
