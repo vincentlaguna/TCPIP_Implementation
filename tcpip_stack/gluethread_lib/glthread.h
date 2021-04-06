@@ -45,7 +45,7 @@ void glthread_add_last(glthread_t *base_glthread, glthread_t *new_glthread);
 
 void delete_glthread_list(glthread_t *base_glthread);
 
-void get_glthread_list_count(glthread_t *base_glthread);
+unsigned int get_glthread_list_count(glthread_t *base_glthread);
 
 void glthread_priority_insert(glthread_t *base_glthread,
                               glthread_t *glthread,

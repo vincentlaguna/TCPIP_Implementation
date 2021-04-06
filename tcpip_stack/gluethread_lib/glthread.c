@@ -68,7 +68,7 @@ void    remove_glthread(glthread_t *curr_glthread)
 
 void    delete_glthread_list(glthread_t *base_glthread)
 {
-  glthread_t glthreadptr         =  NULL;
+  glthread_t *glthreadptr        =  NULL;
   
   ITERATE_GLTHREAD_BEGIN(base_glthread, glthreadptr)
   {

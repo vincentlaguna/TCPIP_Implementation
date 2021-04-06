@@ -19,7 +19,8 @@ node_t  *create_graph_node(graph_t *graph, char *node_name)
   strncpy(node->node_name, node_name, NODE_NAME_SIZE);
   node->node_name[NODE_NAME_SIZE]   = '\0';
   
-  init_glthread(&graph->node_list, &node->graph_glue);
+  init_glthread(&node->graph_glue);
+  glthread_add_next(&graph->node_list, &node->graph_glue);
   return node;
 }
 
@@ -47,10 +48,10 @@ void insert_link_between_two_nodes(node_t *node1,
   int empty_intf_slot;
   // Plugin interface ends into Node*
   empty_intf_slot                   =  get_node_intf_available_slot(node1);
-  node1->intf1[empty_intf_slot]     =  &link->intf1;
+  node1->intf[empty_intf_slot]     =  &link->intf1;
   
   empty_intf_slot                   =  get_node_intf_available_slot(node2);
-  node2->intf2[empty_intf_slot]     =  &link->intf2;
+  node2->intf[empty_intf_slot]     =  &link->intf2;
 }
 
 void  dump_graph(graph_t *graph)
