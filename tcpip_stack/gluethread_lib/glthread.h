@@ -24,7 +24,6 @@
 #define                 ITERATE_GLTHREAD_END(glthreadptrstart, glthreadptr)     \
                       }}                                                        
                     
-
 #define             GLTHREAD_GET_USER_DATA_FROM_OFFSET(glthreadptr, offset)     \
                     (void *)((char *)(glthreadptr) - offset)
 
