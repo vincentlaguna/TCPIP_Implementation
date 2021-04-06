@@ -17,7 +17,7 @@
                     {                                                           \
                       glthread_t *_glthread_ptr = NULL;                         \
                       glthreadptr = BASE(glthreadptrstart);                     \
-                      for (; glthreadptr != NULL; glthreadptr = _glthread_ptr)  \
+                      for(; glthreadptr != NULL; glthreadptr = _glthread_ptr)   \
                       {                                                         \
                         _glthread_ptr = (glthreadptr)->right;                   
                         
