@@ -19,12 +19,12 @@
                       glthreadptr = BASE(glthreadptrstart);                     \
                       for (; glthreadptr != NULL; glthreadptr = _glthread_ptr)  \
                       {                                                         \
-                        _glthread_ptr = (glthreadptr)->right;
+                        _glthread_ptr = (glthreadptr)->right;                   
                         
-#define                 ITERATE_GLTHREAD_END(glthreadptrstart, glthreadptr)     \
+#define               ITERATE_GLTHREAD_END(glthreadptrstart, glthreadptr)     \
 
-                      }                                                         \
-                    }
+                      }}                                                        
+                    
 
 #define             GLTHREAD_GET_USER_DATA_FROM_OFFSET(glthreadptr, offset)     \
                     (void *)((char *)(glthreadptr) - offset)
