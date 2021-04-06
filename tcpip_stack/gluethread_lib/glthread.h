@@ -21,8 +21,7 @@
                       {                                                         \
                         _glthread_ptr = (glthreadptr)->right;                   
                         
-#define               ITERATE_GLTHREAD_END(glthreadptrstart, glthreadptr)     \
-
+#define                 ITERATE_GLTHREAD_END(glthreadptrstart, glthreadptr)     \
                       }}                                                        
                     
 
