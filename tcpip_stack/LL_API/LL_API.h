@@ -13,3 +13,9 @@ typedef enum
   LL_TRUE
 } bool_t;
 
+typedef struct linked_list_node
+{
+  void    *data;
+  struct  linked_list_node *next;
+} single_linked_list_node_t;
+
