@@ -1,7 +1,7 @@
 #ifndef __LL_API__
 #define __LL_API__
 
-#define GET_HEAD_SINGLY_LL(linked_list) (linked_list->head)
+#define GET_HEAD_LL(linked_list) (linked_list->head)
 #define INC_NODE_COUNT_LL(linked_list) (linked_list->node_count++)
 #define DEC_NODE_COUNT_LL(linked_list) (linked_list->node_count--)
 #define GET_NODE_COUNT_LL(linked_list) (linked_list->node_count)
@@ -43,3 +43,7 @@ unsigned int  linked_list_remove_node_by_data_ptr(linked_list_t *linked_list, vo
 void linked_list_set_comparison_fn(linked_list_t *linked_list, int (*comparison_fn)(void *, void*));
 void *linked_list_search_by_key(linked_list_t *linked_list, void *key);
 
+#define ITERATE_LIST(list_ptr, node_ptr)                                        \
+        node_ptr = GET_HEAD_LL(list_ptr);                                       \
+        for(; node_ptr != NULL; node_ptr = GET_NEXT_NODE_LL(node_ptr))          
+#endif
