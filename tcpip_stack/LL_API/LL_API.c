@@ -35,7 +35,12 @@ int  linked_list_add_node(linked_list_t *linked_list, linked_list_node_t *node)
   return 0;
 }
 
-int  linked_list_add_node_by_val(linked_list_t *linked_list, void *data);
+int  linked_list_add_node_by_val(linked_list_t *linked_list, void *data)
+{
+  linked_list_node_t *node = linked_list_init_node(data);
+  return linked_list_add_node(linked_list, node);
+}
+
 unsigned int  linked_list_remove_node(linked_list_t *linked_list, linked_list_node_t *node);
 int  linked_list_remove_node_by_val(linked_list_t *linked_list, void *data, int size);
 bool_t is_linked_list_empty(linked_list_t *linked_list);
