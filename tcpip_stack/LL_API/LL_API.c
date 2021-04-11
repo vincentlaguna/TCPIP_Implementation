@@ -16,7 +16,25 @@ linked_list_node_t *linked_list_init_node(void *data)
   return node;
 }
 
-int  linked_list_add_node(linked_list_t *linked_list, linked_list_node_t *node);
+int  linked_list_add_node(linked_list_t *linked_list, linked_list_node_t *node)
+{
+  if (!linked_list)
+    return -1;
+  if (!node)
+    return -1;
+  if (!GET_HEAD_LL(linked_list))
+  {
+    GET_HEAD_LL(linked_list) = node;
+    INC_NODE_COUNT_LL(linked_list);
+    return 0;
+  }
+  
+  node->next = GET_HEAD_LL(linked_list);
+  GET_HEAD_LL(linked_list) = node;
+  INC_NODE_COUNT_LL(linked_list);
+  return 0;
+}
+
 int  linked_list_add_node_by_val(linked_list_t *linked_list, void *data);
 unsigned int  linked_list_remove_node(linked_list_t *linked_list, linked_list_node_t *node);
 int  linked_list_remove_node_by_val(linked_list_t *linked_list, void *data, int size);
