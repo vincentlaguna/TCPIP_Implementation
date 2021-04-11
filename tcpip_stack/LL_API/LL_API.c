@@ -9,7 +9,13 @@ linked_list_t *init_single_linked_list(void)
   return calloc(1, sizeof(linked_list_t));
 }
 
-linked_list_node_t *linked_list_init_node(void *data);
+linked_list_node_t *linked_list_init_node(void *data)
+{
+  linked_list_node_t *node = calloc(1, sizeof(linked_list_node_t));
+  node->data = data;
+  return node;
+}
+
 int  linked_list_add_node(linked_list_t *linked_list, linked_list_node_t *node);
 int  linked_list_add_node_by_val(linked_list_t *linked_list, void *data);
 unsigned int  linked_list_remove_node(linked_list_t *linked_list, linked_list_node_t *node);
