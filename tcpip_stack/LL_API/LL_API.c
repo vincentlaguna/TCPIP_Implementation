@@ -108,7 +108,31 @@ bool_t is_linked_list_empty(linked_list_t *linked_list)
   return LL_FALSE;
 }
 
-void print_linked_list(linked_list_t *linked_list);
+void print_linked_list(linked_list_t *linked_list)
+{
+  if (!linked_list)
+  {
+    printf("Invalid Linked List\n");
+    return;
+  }
+  if (is_linked_list_empty(linked_list))
+  {
+    printf("Empty Linked List\n");
+    return;
+  }
+  
+  linked_list_node_t *traversal = GET_HEAD_LL(linked_list);
+  unsigned int i = 0;
+  printf("node count = %d\n", GET_HEAD_LL(linked_list));
+  
+  while (traversal)
+  {
+    printf("%d. Data = %p, node = %p\n", i, traversal->data, traversal);
+    i++;
+    traversal = traversal->next;
+  }
+}
+
 void reverse_linked_list(linked_list_t *linked_list);
 void delete_linked_list(linked_list_t *linked_list);
 int  linked_list_delete_node(linked_list_t *linked_list, linked_list_node_t *node);
