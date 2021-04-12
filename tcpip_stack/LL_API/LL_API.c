@@ -133,7 +133,31 @@ void print_linked_list(linked_list_t *linked_list)
   }
 }
 
-void reverse_linked_list(linked_list_t *linked_list);
+void reverse_linked_list(linked_list_t *linked_list)
+{
+  if (!linked_list)
+    assert(0);
+  if (is_linked_list_empty(linked_list))
+    return;
+  if (GET_NODE_COUNT_LL(linked_list) == 1)
+    return;
+  
+  linked_list_node_t *p1 = GET_HEAD_LL(linked_list),
+                     *p2 = linked_list->head->next, *p3 = NULL;
+  p1->next = NULL;
+  
+  do
+  {
+    p3 = p2->next;
+    p2->next = p1;
+    p1 = p2;
+    p2 = p3;
+  } while(p3);
+  
+  linked_list->head = p1;
+  return;
+}
+
 void delete_linked_list(linked_list_t *linked_list);
 int  linked_list_delete_node(linked_list_t *linked_list, linked_list_node_t *node);
 unsigned int  linked_list_delete_node_by_val(linked_list_t *linked_list, void *data, int size);
