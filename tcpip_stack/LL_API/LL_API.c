@@ -55,8 +55,29 @@ unsigned int  linked_list_remove_node(linked_list_t *linked_list, linked_list_no
   
   if (head == node)
   {
-    GET_HEAD_LL(linked_list) = GET_NEXT_NODE_LL
+    GET_HEAD_LL(linked_list) = GET_NEXT_NODE_LL(head);
+    DEC_NODE_COUNT_LL(linked_list);
+    node->next = NULL;
+    return 0;
   }
+  prev = head;
+  head = GET_NEXT_NODE_LL(linked_list);
+  for (i = 1; i < GET_NODE_COUNT_LL(linked_list); i++)
+  {
+    if (head != node)
+    {
+      prev = head;
+      head = GET_NEXT_NODE_LL(head);
+      continue;
+    }
+    GET_NEXT_NODE_LL(prev) = GET_NEXT_NODE_LL(head);
+    GET_NEXT_NODE_LL(head) = NULL;
+    DEC_NODE_COUNT_LL(linked_list);
+    node->next = NULL;
+    return 0;
+  }
+  printf("%s (%d) : Error = node not found\n", __FUNCTION__, __LINE__);
+  return -1;
 }
 
 int  linked_list_remove_node_by_val(linked_list_t *linked_list, void *data, int size);
