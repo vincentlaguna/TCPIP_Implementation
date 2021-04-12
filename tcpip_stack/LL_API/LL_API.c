@@ -98,7 +98,16 @@ unsigned int  linked_list_delete_node_by_val(linked_list_t *linked_list, void *d
   }
   return current_node_count - GET_NODE_COUNT_LL(linked_list);
 }
-bool_t is_linked_list_empty(linked_list_t *linked_list);
+
+bool_t is_linked_list_empty(linked_list_t *linked_list)
+{
+  if (!linked_list)
+    assert(0);
+  if (linked_list->node_count == 0)
+    return LL_TRUE;
+  return LL_FALSE;
+}
+
 void print_linked_list(linked_list_t *linked_list);
 void reverse_linked_list(linked_list_t *linked_list);
 void delete_linked_list(linked_list_t *linked_list);
