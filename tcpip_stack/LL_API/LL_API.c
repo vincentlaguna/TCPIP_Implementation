@@ -41,7 +41,24 @@ int  linked_list_add_node_by_val(linked_list_t *linked_list, void *data)
   return linked_list_add_node(linked_list, node);
 }
 
-unsigned int  linked_list_remove_node(linked_list_t *linked_list, linked_list_node_t *node);
+unsigned int  linked_list_remove_node(linked_list_t *linked_list, linked_list_node_t *node)
+{
+  if (!linked_list || !GET_HEAD_LL(linked_list))
+    return 0;
+  if (!node)
+  {
+    printf("%s (%d) : Error = node is NULL\n", __FUNCTION__, __LINE__);
+    return -1;
+  }
+  int i = 0;
+  linked_list_node_t *head = GET_HEAD_LL(linked_list), *prev = NULL;
+  
+  if (head == node)
+  {
+    GET_HEAD_LL(linked_list) = GET_NEXT_NODE_LL
+  }
+}
+
 int  linked_list_remove_node_by_val(linked_list_t *linked_list, void *data, int size);
 bool_t is_linked_list_empty(linked_list_t *linked_list);
 void print_linked_list(linked_list_t *linked_list);
