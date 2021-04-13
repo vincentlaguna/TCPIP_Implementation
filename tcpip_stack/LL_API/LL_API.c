@@ -182,6 +182,8 @@ void delete_linked_list(linked_list_t *linked_list)
 
 int  linked_list_delete_node(linked_list_t *linked_list, linked_list_node_t *node)
 {
+  if (!linked_list)
+    return -1;
   
 }
 
