@@ -184,7 +184,39 @@ int  linked_list_delete_node(linked_list_t *linked_list, linked_list_node_t *nod
 {
   if (!linked_list)
     return -1;
-  if (!GET_HEAD_LL())
+  if (!GET_HEAD_LL(linked_list) || !node)
+    return 0;
+  linked_list_node_t *traversal = NULL;
+  // If node is not the last node
+  if (node->next)
+  {
+    linked_list_node_t *temp = NULL;
+    node->data = node->next;
+    temp = node->next;
+    node->next = node->next->next;
+    free(temp);
+    DEC_NODE_COUNT_LL(linked_list);
+    return 0;
+  }
+  // If node is the only node in the linked list
+  if (linked_list->node_count == 1 && GET_HEAD_LL(linked_list) == node)
+  {
+    free(node);
+    GET_HEAD_LL(linked_list) = NULL;
+    DEC_NODE_COUNT_LL(linked_list);
+    return 0;
+  }
+  // If node is the last node of the linked list
+  traversal = GET_HEAD_LL(linked_list);
+  while (traversal->next != node)
+  {
+    traversal = traversal->next;
+    continue;
+  }
+  traversal->next = NULL;
+  free(node);
+  DEC_NODE_COUNT_LL(linked_list);
+  return 0;
 }
 
 unsigned int  linked_list_delete_node_by_val(linked_list_t *linked_list, void *data, int size);
