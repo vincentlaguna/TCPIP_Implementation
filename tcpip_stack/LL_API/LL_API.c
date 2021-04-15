@@ -184,7 +184,7 @@ int  linked_list_delete_node(linked_list_t *linked_list, linked_list_node_t *nod
 {
   if (!linked_list)
     return -1;
-  
+  if (!GET_HEAD_LL())
 }
 
 unsigned int  linked_list_delete_node_by_val(linked_list_t *linked_list, void *data, int size);
