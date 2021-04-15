@@ -221,7 +221,21 @@ int  linked_list_delete_node(linked_list_t *linked_list, linked_list_node_t *nod
 
 unsigned int  linked_list_delete_node_by_val(linked_list_t *linked_list, void *data, int size)
 {
+  if (!linked_list || GET_HEAD_LL(linked_list))
+    return 0;
+  unsigned int current_node_count = GET_NODE_COUNT_LL(linked_list);
+  linked_list_node_t *traversal = GET_HEAD_LL(linked_list);
   
+  while (traversal != NULL)
+  {
+    if (memcmp(traversal->data, data, size) == 0)
+    {
+      linked_list_delete_node(linked_list, traversal);
+      return current_node_count - GET_NODE_COUNT_LL(linked_list);
+    }
+    traversal = traversal->next;
+  }
+  return current_node_count - GET_NODE_COUNT_LL(linked_list);
 }
 
 linked_list_node_t *linked_list_get_node_by_data_ptr(linked_list_t *linked_list, void *data);
