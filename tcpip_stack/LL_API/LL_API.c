@@ -240,6 +240,10 @@ unsigned int  linked_list_delete_node_by_val(linked_list_t *linked_list, void *d
 
 linked_list_node_t *linked_list_get_node_by_data_ptr(linked_list_t *linked_list, void *data)
 {
+  if (!linked_list || !GET_HEAD_LL(linked_list))
+    return NULL;
+  int i = 0;
+  linked_list_node_t *head = GET_HEAD_LL(linked_list);
   
 }
 
