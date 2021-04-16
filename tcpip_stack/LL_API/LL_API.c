@@ -245,6 +245,13 @@ linked_list_node_t *linked_list_get_node_by_data_ptr(linked_list_t *linked_list,
   int i = 0;
   linked_list_node_t *head = GET_HEAD_LL(linked_list);
   
+  for (; i < GET_NODE_COUNT_LL(linked_list); i++)
+  {
+    if (head->data == data)
+      return head;
+    head = GET_NEXT_NODE_LL(head);
+  }
+  return NULL;
 }
 
 unsigned int  linked_list_remove_node_by_data_ptr(linked_list_t *linked_list, void *data);
