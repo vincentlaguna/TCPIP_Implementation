@@ -256,7 +256,20 @@ linked_list_node_t *linked_list_get_node_by_data_ptr(linked_list_t *linked_list,
 
 unsigned int  linked_list_remove_node_by_data_ptr(linked_list_t *linked_list, void *data)
 {
+  if (!linked_list || GET_HEAD_LL(linked_list))
+    return 0;
   
+  unsigned int current_node_count = GET_NODE_COUNT_LL(linked_list);
+  linked_list_node_t *traversal = GET_HEAD_LL(linked_list);
+  
+  while (traversal != NULL)
+  {
+    if (traversal->data == data)
+    {
+      linked_list_remove_node(linked_list, traversal);
+      return current_node_count = GET_NODE_COUNT_LL(linked_list);
+    }
+  }
 }
 void linked_list_set_comparison_fn(linked_list_t *linked_list, int (*comparison_fn)(void *, void*));
 void *linked_list_search_by_key(linked_list_t *linked_list, void *key);
