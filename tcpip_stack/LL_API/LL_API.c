@@ -274,5 +274,25 @@ unsigned int  linked_list_remove_node_by_data_ptr(linked_list_t *linked_list, vo
   return current_node_count = GET_NODE_COUNT_LL(linked_list);
 }
 
-void linked_list_set_comparison_fn(linked_list_t *linked_list, int (*comparison_fn)(void *, void*));
-void *linked_list_search_by_key(linked_list_t *linked_list, void *key);
+void linked_list_set_comparison_fn(linked_list_t *linked_list, int (*comparison_fn)(void *, void*))
+{
+  if (!linked_list)
+    assert(0);
+  linked_list->comparison_fn = comparison_fn;
+}
+
+void *linked_list_search_by_key(linked_list_t *linked_list, void *key)
+{
+  assert(linked_list);
+  
+  if (!key)
+    return NULL;
+  
+  linked_list_node_t *list_node = NULL;
+  ITERATE_LIST(linked_list, list_node)
+  {
+    if (linked_list->comparison_fn(list_node->data, key))
+      return list_node->data;
+  }
+  return NULL;
+}
