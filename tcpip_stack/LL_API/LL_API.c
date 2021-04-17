@@ -269,7 +269,10 @@ unsigned int  linked_list_remove_node_by_data_ptr(linked_list_t *linked_list, vo
       linked_list_remove_node(linked_list, traversal);
       return current_node_count = GET_NODE_COUNT_LL(linked_list);
     }
+    traversal = traversal->next;
   }
+  return current_node_count = GET_NODE_COUNT_LL(linked_list);
 }
+
 void linked_list_set_comparison_fn(linked_list_t *linked_list, int (*comparison_fn)(void *, void*));
 void *linked_list_search_by_key(linked_list_t *linked_list, void *key);
