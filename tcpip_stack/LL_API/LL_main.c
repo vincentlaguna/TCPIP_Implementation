@@ -19,9 +19,27 @@ int person_comparison_fn(void *pStruct, void *key)
   return 0; // We did not find a match
 }
 
-void print_person_details(person_t *outperson)
+void printPersonDetails(person_t *outPerson)
 {
-  printf("outperson->name = %s\n", outperson->name);
-  printf("outperson->age = %d\n", outperson->age);
-  printf("outperson->name = %d\n", outperson->weight);
+  printf("outperson->name = %s\n", outPerson->name);
+  printf("outperson->age = %d\n", outPerson->age);
+  printf("outperson->name = %d\n", outPerson->weight);
+}
+
+int main(int argc, char **argv)
+{
+  linked_list_t *personList = init_single_linked_list();
+  // Register comparison function
+  personList->comparison_fn = person_comparison_fn;
+  
+  person_t person1 = {"Dwight", 40, 200};
+  person_t person2 = {"Jim", 37, 195};
+  person_t person3 = {"Creed", 60, 185};
+  
+  linked_list_add_node_by_val(personList, &person1);
+  linked_list_add_node_by_val(personList, &person2);
+  linked_list_add_node_by_val(personList, &person3);
+  
+  person_t *outPerson = NULL;
+  
 }
