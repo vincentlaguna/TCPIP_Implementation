@@ -42,4 +42,18 @@ int main(int argc, char **argv)
   
   person_t *outPerson = NULL;
   
+  printf("\n\nSearching ->->-> ...\n");
+  outPerson = (person_t *)linked_list_search_by_key(personList, "Dwight");
+  
+  printPersonDetails(outPerson);
+  printf("\n\nLooping ->->-> ...\n");
+  
+  linked_list_node_t *listNode = NULL;
+  // Using looping macro (still do not fully understand) to iterate
+  ITERATE_LIST(personList, listNode)
+  {
+    outPerson = (person_t *)listNode->data;
+    printPersonDetails(outPerson);
+  }
+  return(0);
 }
