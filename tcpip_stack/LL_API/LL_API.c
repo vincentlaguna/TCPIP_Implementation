@@ -61,7 +61,7 @@ int  linked_list_remove_node(linked_list_t *linked_list, linked_list_node_t *nod
     return 0;
   }
   prev = head;
-  head = GET_NEXT_NODE_LL(linked_list);
+  head = GET_NEXT_NODE_LL(head);
   for (i = 1; i < GET_NODE_COUNT_LL(linked_list); i++)
   {
     if (head != node)
