@@ -80,25 +80,6 @@ int  linked_list_remove_node(linked_list_t *linked_list, linked_list_node_t *nod
   return -1;
 }
 
-unsigned int  linked_list_delete_node_by_val(linked_list_t *linked_list, void *data, int size)
-{
-  if (!linked_list || !GET_HEAD_LL(linked_list))
-    return 0;
-  unsigned int current_node_count = GET_NODE_COUNT_LL(linked_list);
-  linked_list_node_t *traversal = GET_HEAD_LL(linked_list);
-  
-  while (traversal != NULL)
-  {
-    if (memcmp(traversal->data, data, size) == 0)
-    {
-      linked_list_delete_node(linked_list, traversal);
-      return current_node_count - GET_NODE_COUNT_LL(linked_list);
-    }
-    traversal = traversal->next;
-  }
-  return current_node_count - GET_NODE_COUNT_LL(linked_list);
-}
-
 bool_t is_linked_list_empty(linked_list_t *linked_list)
 {
   if (!linked_list)
