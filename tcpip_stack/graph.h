@@ -80,8 +80,14 @@ static inline interface_t * get_node_intf_by_name(node_t *node, char *if_name)
   
   for (i = 0; i < MAX_INTF_PER_NODE; i++)
   {
-    
+    if (strncmp(node->intf[i].if_name) == if_name)
+    {
+      node->intf[i] = interface;
+      return interface
+    }
+    break;
   }
+  return -1;
 }
 
 
