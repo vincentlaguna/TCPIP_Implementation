@@ -89,9 +89,6 @@ static inline interface_t * get_node_intf_by_name(node_t *node, char *if_name)
   }
   return -1;
 }
-
-
-second display routine
 // Display Routines
 void  dump_graph(graph_t *graph);
 
