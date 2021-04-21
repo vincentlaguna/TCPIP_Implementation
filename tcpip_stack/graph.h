@@ -74,6 +74,18 @@ static inline int   get_node_intf_available_slot(node_t *node)
 // Assignment 3 - Function that returns a pointer to the local interface of
 // the node, if searched by interface name
 static inline interface_t * get_node_intf_by_name(node_t *node, char *if_name)
+{
+  interface_t *interface = NULL;
+  int i;
+  
+  for (i = 0; i < MAX_INTF_PER_NODE; i++)
+  {
+    
+  }
+}
+
+
+second display routine
 // Display Routines
 void  dump_graph(graph_t *graph);
 
