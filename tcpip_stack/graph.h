@@ -71,9 +71,9 @@ static inline int   get_node_intf_available_slot(node_t *node)
   }
   return -1;
 }
-// Assignment 3 - Function that returns a pointer to the local interface of
+// Assignment 3.1 - Function that returns a pointer to the local interface of
 // the node, if searched by interface name
-static inline interface_t * get_node_intf_by_name(node_t *node, char *if_name)
+static inline interface_t *  get_node_intf_by_name(node_t *node, char *if_name)
 {
   interface_t *interface = NULL;
   int i;
@@ -88,6 +88,12 @@ static inline interface_t * get_node_intf_by_name(node_t *node, char *if_name)
     break;
   }
   return -1;
+}
+// Assignment 3.1 - Function that returns a pointer to a node,
+// if searched by node name
+static inline *node_t  get_node_by_node_name(graph_t *topology, char *node_name)
+{
+  
 }
 // Display Routines
 void  dump_graph(graph_t *graph);
