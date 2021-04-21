@@ -1,7 +1,8 @@
 # TCPIP_Implementation
 Repository created for Udemy Couse "TCP/IP Stack Implementation in C - Part A"
 
-Status as of 04-2-2021:
+Status as of 04-21-2021:
+- Ready to dive back into the next section of the course -> Complete Assignment 3
 - Branching into some Linked-List review and including an optional LL library alternative to GLthreads
 - Completion of gluethread library
 - Creation of gluethread library directory
