@@ -93,7 +93,7 @@ static inline interface_t *  get_node_intf_by_name(node_t *node, char *if_name)
 // if searched by node name
 static inline *node_t  get_node_by_node_name(graph_t *topology, char *node_name)
 {
-  
+  node_t *node = NULL;
 }
 // Display Routines
 void  dump_graph(graph_t *graph);
