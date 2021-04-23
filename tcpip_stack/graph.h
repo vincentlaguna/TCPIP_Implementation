@@ -89,11 +89,16 @@ static inline interface_t *  get_node_intf_by_name(node_t *node, char *if_name)
   }
   return -1;
 }
-// Assignment 3.1 - Function that returns a pointer to a node,
+// Assignment 3.2 - Function that returns a pointer to a node,
 // if searched by node name
 static inline *node_t  get_node_by_node_name(graph_t *topology, char *node_name)
 {
-  node_t *node = NULL;
+  glthread_t *current;
+  node_t     *node;
+  
+  int i;
+  
+  while ()
 }
 // Display Routines
 void  dump_graph(graph_t *graph);
