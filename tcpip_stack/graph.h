@@ -73,6 +73,7 @@ static inline int   get_node_intf_available_slot(node_t *node)
 }
 // Assignment 3.1 - Function that returns a pointer to the local interface of
 // the node, if searched by interface name
+// My Answer:
 static inline interface_t *  get_node_intf_by_name(node_t *node, char *if_name)
 {
   interface_t *interface = NULL;
@@ -96,9 +97,14 @@ static inline *node_t  get_node_by_node_name(graph_t *topology, char *node_name)
   glthread_t *current;
   node_t     *node;
   
-  int i;
-  
-  while ()
+  ITERATE_GLTHREAD_BEGIN(&topology->node_list, current)
+  {
+    node = graph_glue_to_node(current);
+    if (strncmp(node->node_name, node_name) == 0)
+      return node;
+    return -1;
+  }
+  ITERATE_GLTHREAD_END(&topology->node_list, current);
 }
 // Display Routines
 void  dump_graph(graph_t *graph);
