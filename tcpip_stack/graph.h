@@ -2,26 +2,29 @@
 #define 	__GRAPH_H__
 
 #include 	"gluethread_lib/glthread.h"
+#include  "net.h"
 // Define Constants
 #define 	NODE_NAME_SIZE    16
 #define 	IF_NAME_SIZE		  16
 #define		MAX_INTF_PER_NODE	10
 // Forward Declarations (to avoid recursive dependencies between Data Structures)
-typedef struct 	node_ node_t;
-typedef struct 	link_ link_t;
+typedef struct 	  node_ node_t;
+typedef struct 	  link_ link_t;
 
-typedef struct 	interface_
+typedef struct 	  interface_
 {
-  char		      if_name[IF_NAME_SIZE];
-  struct node_ 	*att_node;
-  struct link_ 	*link;
+  char		        if_name[IF_NAME_SIZE];
+  struct node_ 	  *att_node;
+  struct link_ 	  *link;
+  intf_nw_props_t intf_nw_props;
 } interface_t;
 
-struct link_
+struct            link_
 {
-  interface_t	  intf1;
-  interface_t	  intf2;
-  unsigned int	cost;
+  interface_t	    intf1;
+  interface_t	    intf2;
+  node_nw_prop_t  node_nw_prop;
+  unsigned int	  cost;
 };
 
 struct 		      node_
