@@ -12,4 +12,5 @@ Status as of 04-24-2021:
 - Going through appendix assignments for glthreads
 - Pending completion of first assignment in graph.h
 - Started working on graph.h file
+- Completed repository from course instructor to work from: https://github.com/sachinites/tcpip_stack
 - Initialized Repository - March, 2021
