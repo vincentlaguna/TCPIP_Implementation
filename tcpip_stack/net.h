@@ -25,4 +25,6 @@ static inline void  init_node_nw_prop(node_nw_prop_t *node_nw_prop)
   memset(node_nw_prop->lb_addr.ip_addr, 0, 16);
 }
 
+
+
 #endif //__NET_H__
