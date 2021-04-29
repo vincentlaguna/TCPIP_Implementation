@@ -36,5 +36,7 @@ typedef struct  intf_nw_props_
   char          mask;
 } intf_nw_props_t;
 
+void interface_assign_mac_address(interface_t *interface);
+// Get shorthand Macros
 
 #endif //__NET_H__
