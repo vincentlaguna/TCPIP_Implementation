@@ -39,5 +39,6 @@ typedef struct  intf_nw_props_
 void interface_assign_mac_address(interface_t *interface);
 // Get shorthand Macros
 #define  IF_MAC(intf_ptr) ((intf_ptr)->intf_nw_props.mac_add.mac)
+#define  IF_IP(intf_ptr)  ((intf_ptr)->intf_nw_props.ip_add.ip_addr)
 
 #endif //__NET_H__
