@@ -1,21 +1,21 @@
-#ifndef  __NET_H__
-#define  __NET_H__
+#ifndef               __NET_H__
+#define               __NET_H__
 
-typedef struct  ip_add_
+typedef struct        ip_add_
 {
-  char          ip_addr[16];
+  char                ip_addr[16];
 } ip_add_t;
 
-typedef struct  mac_add_
+typedef struct        mac_add_
 {
-  char          mac[48];
+  char                mac[48];
 } mac_add_t;
 
-typedef struct  node_nw_prop_
+typedef struct        node_nw_prop_
 {
   //L3 Properties
-  bool_t        is_lb_addr_config;
-  ip_add_t      lb_addr; // Loop-back address of node
+  bool_t              is_lb_addr_config;
+  ip_add_t            lb_addr; // Loop-back address of node
 } node_nw_prop_t;
 
 static inline void  init_node_nw_prop(node_nw_prop_t *node_nw_prop)
@@ -25,22 +25,23 @@ static inline void  init_node_nw_prop(node_nw_prop_t *node_nw_prop)
   memset(node_nw_prop->lb_addr.ip_addr, 0, 16);
 }
 
-typedef struct  intf_nw_props_
+typedef struct        intf_nw_props_
 {
   // L2 Properties
-  mac_add_t     mac_add; // MAC's are hard-coded into the interface NIC
+  mac_add_t           mac_add; // MAC's are hard-coded into the interface NIC
   // L3 Properties
   // Set to TRUE if ip address is configures, intf operates in L3 mode if ip address is configured on it
-  bool_t        is_ipadd_config;
-  ip_add_t      ip_add;
-  char          mask;
+  bool_t              is_ipadd_config;
+  ip_add_t            ip_add;
+  char                mask;
 } intf_nw_props_t;
 
 void interface_assign_mac_address(interface_t *interface);
 // Get shorthand Macros
-#define  IF_MAC(intf_ptr) ((intf_ptr)->intf_nw_props.mac_add.mac)
-#define  IF_IP(intf_ptr)  ((intf_ptr)->intf_nw_props.ip_add.ip_addr)
+#define  IF_MAC(intf_ptr)       ((intf_ptr)->intf_nw_props.mac_add.mac)
+#define  IF_IP(intf_ptr)        ((intf_ptr)->intf_nw_props.ip_add.ip_addr)
 
 #define  NODE_LO_ADDR(node_ptr) (node_ptr->node_nw_prop.lb_addr.ip_addr)
+// API's to set Network Node Properties
 
 #endif //__NET_H__

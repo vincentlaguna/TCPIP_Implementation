@@ -1,12 +1,12 @@
-#ifndef 	__GRAPH_H__
-#define 	__GRAPH_H__
+#ifndef 	        __GRAPH_H__
+#define 	        __GRAPH_H__
 
-#include 	"gluethread_lib/glthread.h"
-#include  "net.h"
+#include 	        "gluethread_lib/glthread.h"
+#include          "net.h"
 // Define Constants
-#define 	NODE_NAME_SIZE    16
-#define 	IF_NAME_SIZE		  16
-#define		MAX_INTF_PER_NODE	10
+#define 	        NODE_NAME_SIZE    16
+#define 	        IF_NAME_SIZE		  16
+#define		        MAX_INTF_PER_NODE	10
 // Forward Declarations (to avoid recursive dependencies between Data Structures)
 typedef struct 	  node_ node_t;
 typedef struct 	  link_ link_t;
@@ -27,23 +27,23 @@ struct            link_
   unsigned int	  cost;
 };
 
-struct 		      node_
+struct 		        node_
 {
-  char		      node_name[NODE_NAME_SIZE];
-  interface_t	  *intf[MAX_INTF_PER_NODE];
-  glthread_t 	  graph_glue;
+  char		        node_name[NODE_NAME_SIZE];
+  interface_t	    *intf[MAX_INTF_PER_NODE];
+  glthread_t 	    graph_glue;
 };
 
 GLTHREAD_TO_STRUCT(graph_glue_to_node, node_t, graph_glue);
 
-typedef struct 	graph_
+typedef struct 	  graph_
 {
-  char 		      topology_name[32];
-  glthread_t 	  node_list;
+  char 		        topology_name[32];
+  glthread_t	    node_list;
 } graph_t;
 
-node_t          *create_graph_node(graph_t *graph, char *node_name);
-graph_t         *create_new_graph(char *topology_name);
+node_t            *create_graph_node(graph_t *graph, char *node_name);
+graph_t           *create_new_graph(char *topology_name);
 
 void  insert_link_between_two_nodes(node_t       *node1,
                                     node_t       *node2,
@@ -51,7 +51,7 @@ void  insert_link_between_two_nodes(node_t       *node1,
                                     char         *to_if_name,
                                     unsigned int cost);
 // Helper Functions
-static inline   node_t *get_nbr_node(interface_t *interface)
+static inline node_t  *get_nbr_node(interface_t *interface)
 {
   link_t *pLink = interface->link;
   
@@ -130,8 +130,8 @@ static inline interface_t  *get_node_intf_by_name(node_t *node, char *if_name)
 // Instructor Example:
 static inline *node_t  get_node_by_node_name(graph_t *topology, char *node_name)
 {
-  glthread_t *current;
-  node_t     *node;
+  glthread_t      *current;
+  node_t          *node;
   
   ITERATE_GLTHREAD_BEGIN(&topology->node_list, current)
   {
