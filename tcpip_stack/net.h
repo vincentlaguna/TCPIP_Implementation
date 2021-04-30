@@ -51,7 +51,10 @@ void interface_assign_mac_address(interface_t *interface);
 #define  NODE_LO_ADDR(node_ptr) (node_ptr->node_nw_prop.lb_addr.ip_addr)
 // API's to set Network Node Properties
 bool_t  node_set_loopback_address(node_t *node, char *ip_addr);
-bool_t  node_set_intf_ip_address(node_t *node, char *ip_addr, char mask);
+bool_t  node_set_intf_ip_address(node_t *node, 
+                                 char *local_if,
+                                 char *ip_addr, 
+                                 char mask);
 bool_t  node_unset_intf_ip_address(node_t *node, char *local_if);
 
 #endif //__NET_H__
