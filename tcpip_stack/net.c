@@ -12,3 +12,8 @@ bool_t  node_set_loopback_address(node_t *node, char ip_addr)
 {
   
 }
+
+bool_t  node_set_device_type(node_t *node, unsigned int F)
+{
+  
+}
