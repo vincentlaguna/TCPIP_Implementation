@@ -20,3 +20,8 @@ bool_t  node_set_loopback_address(node_t *node, char ip_addr)
   
 }
 
+bool_t node_set_intf_ip_address(node_t *node, char *local_if,
+                                char ip_addr, char mask)
+{
+  
+}
