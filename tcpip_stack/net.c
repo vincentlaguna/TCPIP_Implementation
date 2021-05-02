@@ -20,8 +20,21 @@ bool_t  node_set_loopback_address(node_t *node, char ip_addr)
   
 }
 
-bool_t node_set_intf_ip_address(node_t *node, char *local_if,
+bool_t  node_set_intf_ip_address(node_t *node, char *local_if,
                                 char ip_addr, char mask)
+{
+  
+}void   dump_node_nw_props(node_t *node)
+{
+  
+}
+
+void    dump_intf_props(interface_t *interface)
+{
+  
+}
+
+void  dump_nw_graph(graph_t *graph)
 {
   
 }
