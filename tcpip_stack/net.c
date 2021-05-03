@@ -12,7 +12,8 @@ void  interface_assign_mac_address(interface_t *interface)
 
 bool_t  node_set_device_type(node_t *node, unsigned int F)
 {
-  
+  SET_BIT(node->node_nw_prop.flags, F);
+  return TRUE;
 }
 
 bool_t  node_set_loopback_address(node_t *node, char ip_addr)
