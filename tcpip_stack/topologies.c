@@ -10,6 +10,8 @@ graph_t   *build_first_topo(void)
   insert_link_between_two_nodes(R0_re, R1_re, "eth0/0", "eth0/1", 1);
   insert_link_between_two_nodes(R1_re, R2_re, "eth0/2", "eth0/3", 1);
   insert_link_between_two_nodes(R0_re, R2_re, "eth0/4", "eth0/5", 1);
+  
+  // continue implementation
 
   return topo;
 }
