@@ -19,6 +19,9 @@ bool_t  node_set_device_type(node_t *node, unsigned int F)
 bool_t  node_set_loopback_address(node_t *node, char ip_addr)
 {
   assert(ip_addr);
+  node->node_nw_prop.is_lb_addr_config = TRUE;
+  strncpy(NODE_LO_ADDR(node), ip_addr, 16);
+  NODE_LO_ADDR(node)[15] = '\0';
 }
 
 bool_t  node_set_intf_ip_address(node_t *node, char *local_if,
