@@ -49,7 +49,7 @@ bool_t  node_set_intf_ip_address(node_t *node, char *local_if,
   return TRUE;
 }
 
-void   dump_node_nw_props(node_t *node)
+void  dump_node_nw_props(node_t *node)
 {
   printf("\nNode Name = %s\n", node->node_name);
   printf("\t node flags : %u", node->node_nw_prop.flags);
@@ -58,9 +58,22 @@ void   dump_node_nw_props(node_t *node)
     printf("\t lo addr : %s/32\n", NODE_LO_ADDR(node));
 }
 
-void    dump_intf_props(interface_t *interface)
+void  dump_intf_props(interface_t *interface)
 {
+  dump_interface(interface);
   
+  if(interface->init_intf_nw_prop.is_ipadd_config)
+  {
+    printf("\t IP Addr = %s/%u", IF_IP(interface), interface->intf_nw_props.mask);
+  }
+  else
+  {
+    printf("\t IP Addr = %s/%u", "NULL", 0);
+  }
+  printf("\t MAC : %u:%u:%u:%u:%u:%u\n",
+         IF_MAC(interface)[0], IF_MAC(interface)[1]),
+         IF_MAC(interface)[2], IF_MAC(interface)[3]),
+         IF_MAC(interface)[4], IF_MAC(interface)[5]);
 }
 
 void  dump_nw_graph(graph_t *graph)
