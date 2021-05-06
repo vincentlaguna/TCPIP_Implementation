@@ -51,7 +51,11 @@ bool_t  node_set_intf_ip_address(node_t *node, char *local_if,
 
 void   dump_node_nw_props(node_t *node)
 {
+  printf("\nNode Name = %s\n", node->node_name);
+  printf("\t node flags : %u", node->node_nw_prop.flags);
   
+  if(node->node_nw_prop.is_lb_addr_config)
+    printf("\t lo addr : %s/32\n", NODE_LO_ADDR(node));
 }
 
 void    dump_intf_props(interface_t *interface)
