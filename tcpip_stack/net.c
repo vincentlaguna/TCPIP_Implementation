@@ -25,6 +25,7 @@ bool_t  node_set_loopback_address(node_t *node, char ip_addr)
   
   if(IS_BIT_SET(node->node_nw_prop.flags, L3_ROUTER))
     assert(0); // Must enable L3 routing first
+  
   node->node_nw_prop.is_lb_addr_config = TRUE;
   strncpy(NODE_LO_ADDR(node), ip_addr, 16);
   NODE_LO_ADDR(node)[15] = '\0';
@@ -35,7 +36,17 @@ bool_t  node_set_loopback_address(node_t *node, char ip_addr)
 bool_t  node_set_intf_ip_address(node_t *node, char *local_if,
                                 char ip_addr, char mask)
 {
+  interface_t *interface = get_node_if_by_name(node, local_if);
   
+  if(!interface)
+    assert(0);
+    
+  strncpy(IF_IP(interface), ip_addr, 16);
+  IF_IP(interface)[16] = '\0';
+  interface->intf_nw_props.mask = mask;
+  interface->intf_nw_props.is_ipadd_config = TRUE;
+  
+  return TRUE;
 }
 
 void   dump_node_nw_props(node_t *node)
