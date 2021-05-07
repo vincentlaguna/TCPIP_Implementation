@@ -23,7 +23,9 @@ int main(void)
   printf("Testing Random Number Generator Function\n\n");
   for(int i = 0; i < 10; i++)
   {
-    printf("%d\n", hash_code(str, size));
+    printf("%d", hash_code(str, size));
+    str = hash_code(str, size);
+    size = hash_code(str, size);
   }
   
   return(0);
