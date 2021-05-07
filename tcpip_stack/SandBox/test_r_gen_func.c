@@ -24,8 +24,6 @@ int main(void)
   for(int i = 0; i < 10; i++)
   {
     printf("%d", hash_code(str, size));
-    str = hash_code(str, size);
-    size = hash_code(str, size);
   }
   
   return(0);
