@@ -1,6 +1,17 @@
 #ifndef               __NET_H__
 #define               __NET_H__
 
+#include <memory.h>
+#include "utils.h"
+// Device ID's
+#define L3_ROUTER     (1 << 0)
+#define L2_SWITCH     (1 << 1)
+#define HUB           (1 << 2)
+
+typedef struct        graph_      graph_t;
+typedef struct        interface_  interface_t;
+typedef struct        node_       node_t;
+
 typedef struct        ip_add_
 {
   char                ip_addr[16];
