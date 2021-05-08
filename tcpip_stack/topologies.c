@@ -11,7 +11,7 @@ graph_t   *build_first_topo(void)
   insert_link_between_two_nodes(R1_re, R2_re, "eth0/2", "eth0/3", 1);
   insert_link_between_two_nodes(R0_re, R2_re, "eth0/4", "eth0/5", 1);
   
-  // continue implementation, and add the cli lib
+  // continue implementation, and add the cli lib, I forgot where I left off...
 
   return topo;
 }
