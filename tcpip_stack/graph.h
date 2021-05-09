@@ -77,6 +77,25 @@ static inline int   get_node_intf_available_slot(node_t *node)
 // Assignment 3.1 - Function that returns a pointer to the local interface of
 // the node, if searched by interface name
 // My Answer:
+static inline interface_t  *get_node_intf_by_name(node_t *node, char *if_name)
+{
+  interface_t *interface = NULL;
+  int i;
+  
+  for (i = 0; i < MAX_INTF_PER_NODE; i++)
+  {
+    if (!interface)
+      return NULL;
+    if (strncmp(node->intf[i]->if_name, if_name, IF_NAME_SIZE) == 0)
+    {
+      node->intf[i] = interface;
+      return interface;
+    }
+    break;
+  }
+  return NULL;
+}
+// Instructor Example:
 // static inline interface_t  *get_node_intf_by_name(node_t *node, char *if_name)
 // {
 //   interface_t *interface = NULL;
@@ -87,29 +106,12 @@ static inline int   get_node_intf_available_slot(node_t *node)
 //     if (strncmp(node->intf[i].if_name) == if_name)
 //     {
 //       node->intf[i] = interface;
-//       return interface
+//       return interface;
 //     }
 //     break;
 //   }
 //   return -1;
 // }
-// Instructor Example:
-static inline interface_t  *get_node_intf_by_name(node_t *node, char *if_name)
-{
-  interface_t *interface = NULL;
-  int i;
-  
-  for (i = 0; i < MAX_INTF_PER_NODE; i++)
-  {
-    if (strncmp(node->intf[i].if_name) == if_name)
-    {
-      node->intf[i] = interface;
-      return interface;
-    }
-    break;
-  }
-  return -1;
-}
 // Assignment 3.2 - Function that returns a pointer to a node,
 // if searched by node name
 // My Answer:

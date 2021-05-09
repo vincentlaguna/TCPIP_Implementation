@@ -24,6 +24,9 @@ typedef struct        mac_add_
 
 typedef struct        node_nw_prop_
 {
+  // Used to find various device type capabilities
+  // of the node and other features
+  unsigned int        flags;
   //L3 Properties
   bool_t              is_lb_addr_config;
   ip_add_t            lb_addr; // Loop-back address of node
