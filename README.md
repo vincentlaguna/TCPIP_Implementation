@@ -1,8 +1,8 @@
 # TCPIP_Implementation
 Repository created for Udemy Couse "TCP/IP Stack Implementation in C - Part A"
 
-Status as of 04-24-2021:
-- 
+Status as of 05-08-2021:
+- Need to finish assignment 4
 - Implementation of CLI library (Need to update to next revision in course)
 - Assignment 3 = Completed 4-23-2021
 - Ready to dive back into the next section of the course -> Complete Assignment 3
