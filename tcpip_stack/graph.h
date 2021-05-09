@@ -141,7 +141,7 @@ static inline *node_t  get_node_by_node_name(graph_t *topology, char *node_name)
       return node;
     return -1;
   }
-  ITERATE_GLTHREAD_END(topology->node_list, current);
+  ITERATE_GLTHREAD_END(&topology->node_list, current);
 }
 // Display Routines
 void  dump_graph(graph_t *graph);
