@@ -130,7 +130,7 @@ static inline interface_t  *get_node_intf_by_name(node_t *node, char *if_name)
 //   ITERATE_GLTHREAD_END(&topology->node_list, current);
 // }
 // Instructor Example:
-static inline *node_t  get_node_by_node_name(graph_t *topology, char *node_name)
+static inline node_t  *get_node_by_node_name(graph_t *topology, char *node_name)
 {
   glthread_t      *current;
   node_t          *node;
