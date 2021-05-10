@@ -115,34 +115,34 @@ static inline interface_t  *get_node_intf_by_name(node_t *node, char *if_name)
 // Assignment 3.2 - Function that returns a pointer to a node,
 // if searched by node name
 // My Answer:
-// static inline *node_t  get_node_by_node_name(graph_t *topology, char *node_name)
+static inline node_t  *get_node_by_node_name(graph_t *topology, char *node_name)
+{
+  glthread_t *current;
+  node_t     *node;
+  
+  ITERATE_GLTHREAD_BEGIN(&topology->node_list, current)
+  {
+    node = graph_glue_to_node(current);
+    if (strncmp(node->node_name, node_name, NODE_NAME_SIZE) == 0)
+      return node;
+    return NULL;
+  }
+  ITERATE_GLTHREAD_END(&topology->node_list, current);
+}
+// Instructor Example:
+// static inline node_t  *get_node_by_node_name(graph_t *topology, char *node_name)
 // {
-//   glthread_t *current;
-//   node_t     *node;
+//   glthread_t      *current;
+//   node_t          *node;
   
 //   ITERATE_GLTHREAD_BEGIN(&topology->node_list, current)
 //   {
-//     node = graph_glue_to_node(current);
-//     if (strncmp(node->node_name, node_name) == 0)
+//     if(strncmp(node->node_name, node_name) == 0)
 //       return node;
 //     return -1;
 //   }
 //   ITERATE_GLTHREAD_END(&topology->node_list, current);
 // }
-// Instructor Example:
-static inline node_t  *get_node_by_node_name(graph_t *topology, char *node_name)
-{
-  glthread_t      *current;
-  node_t          *node;
-  
-  ITERATE_GLTHREAD_BEGIN(&topology->node_list, current)
-  {
-    if(strncmp(node->node_name, node_name) == 0)
-      return node;
-    return -1;
-  }
-  ITERATE_GLTHREAD_END(&topology->node_list, current);
-}
 // Display Routines
 void  dump_graph(graph_t *graph);
 
