@@ -1,6 +1,7 @@
 #ifndef 	        __GRAPH_H__
 #define 	        __GRAPH_H__
 
+#include          "assert.h>"
 #include 	        "gluethread_lib/glthread.h"
 #include          "net.h"
 // Define Constants
@@ -53,12 +54,15 @@ void  insert_link_between_two_nodes(node_t       *node1,
 // Helper Functions
 static inline node_t  *get_nbr_node(interface_t *interface)
 {
-  link_t *pLink = interface->link;
+  assert(interface->att_node);
+  assert(interface->link);
   
-  if (&pLink->intf1 == interface)
-    return pLink->intf2.att_node;
+  link_t *link = interface->link;
+  
+  if (&link->intf1 == interface)
+    return link->intf2.att_node;
   else
-    return pLink->intf1.att_node;
+    return link->intf1.att_node;
 }
 // For first assignment: get the available slot for the interface node
 
