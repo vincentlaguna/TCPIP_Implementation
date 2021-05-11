@@ -64,11 +64,16 @@ void interface_assign_mac_address(interface_t *interface);
 #define  IF_IP(intf_ptr)        ((intf_ptr)->intf_nw_props.ip_add.ip_addr)
 #define  NODE_LO_ADDR(node_ptr) (node_ptr->node_nw_prop.lb_addr.ip_addr)
 // API's to set Network Node Properties
+bool_t  node_set_device_type(node_t *node, unsigned int F);
 bool_t  node_set_loopback_address(node_t *node, char *ip_addr);
 bool_t  node_set_intf_ip_address(node_t *node, 
                                  char *local_if,
                                  char *ip_addr, 
                                  char mask);
 bool_t  node_unset_intf_ip_address(node_t *node, char *local_if);
+// Dump Functions to dump network information on nodes and interfaces
+void  dump_nw_graph(graph_t *graph);
+void  dump_node_nw_props(node_t *node);
+void  dump_intf_props(interface_t *interface);
 
 #endif //__NET_H__
