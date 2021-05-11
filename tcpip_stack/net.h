@@ -75,5 +75,5 @@ bool_t  node_unset_intf_ip_address(node_t *node, char *local_if);
 void  dump_nw_graph(graph_t *graph);
 void  dump_node_nw_props(node_t *node);
 void  dump_intf_props(interface_t *interface);
-// Needs fixing
+
 #endif //__NET_H__
