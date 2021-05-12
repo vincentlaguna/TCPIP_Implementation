@@ -55,7 +55,7 @@ bool_t  node_set_loopback_address(node_t *node, char ip_addr)
   
   node->node_nw_prop.is_lb_addr_config = TRUE;
   strncpy(NODE_LO_ADDR(node), ip_addr, 16);
-  NODE_LO_ADDR(node)[15] = '\0';
+  NODE_LO_ADDR(node)[16] = '\0';
   
   return TRUE;
 }
@@ -63,7 +63,7 @@ bool_t  node_set_loopback_address(node_t *node, char ip_addr)
 bool_t  node_set_intf_ip_address(node_t *node, char *local_if,
                                 char ip_addr, char mask)
 {
-  interface_t *interface = get_node_if_by_name(node, local_if);
+  interface_t *interface = get_node_intf_by_name(node, local_if);
   
   if(!interface)
     assert(0);
@@ -89,7 +89,7 @@ void  dump_intf_props(interface_t *interface)
 {
   dump_interface(interface);
   
-  if(interface->init_intf_nw_prop.is_ipadd_config)
+  if(interface->intf_nw_props.is_ipadd_config)
   {
     printf("\t IP Addr = %s/%u", IF_IP(interface), interface->intf_nw_props.mask);
   }
@@ -98,8 +98,8 @@ void  dump_intf_props(interface_t *interface)
     printf("\t IP Addr = %s/%u", "NULL", 0);
   }
   printf("\t MAC : %u:%u:%u:%u:%u:%u\n",
-         IF_MAC(interface)[0], IF_MAC(interface)[1]),
-         IF_MAC(interface)[2], IF_MAC(interface)[3]),
+         IF_MAC(interface)[0], IF_MAC(interface)[1],
+         IF_MAC(interface)[2], IF_MAC(interface)[3],
          IF_MAC(interface)[4], IF_MAC(interface)[5]);
 }
 
