@@ -88,13 +88,14 @@ static inline interface_t  *get_node_intf_by_name(node_t *node, char *if_name)
   
   for (i = 0; i < MAX_INTF_PER_NODE; i++)
   {
-    interface = node->intf[i];
     if (!interface)
       return NULL;
-    if (strncmp(interface->if_name, if_name, IF_NAME_SIZE) == 0)
+    if (strncmp(node->intf[i]->if_name, if_name, IF_NAME_SIZE) == 0)
     {
+      node->intf[i] = interface;
       return interface;
     }
+    break;
   }
   return NULL;
 }
