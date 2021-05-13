@@ -65,7 +65,8 @@ bool_t  node_set_intf_ip_address(node_t *node, char *local_if,
 {
   interface_t *interface = get_node_intf_by_name(node, local_if);
   
-  if(!interface) assert(0);
+  if(!interface) 
+    assert(0);
     
   strncpy(IF_IP(interface), ip_addr, 16);
   IF_IP(interface)[16] = '\0';
@@ -124,6 +125,5 @@ void  dump_nw_graph(graph_t *graph)
         break;
       dump_intf_props(interface);
     }
-  }
-  ITERATE_GLTHREAD_END(&graph->node_list, current);
+  } ITERATE_GLTHREAD_END(&graph->node_list, current);
 }
