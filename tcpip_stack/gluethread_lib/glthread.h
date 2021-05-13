@@ -1,6 +1,22 @@
 #ifndef             __GLUETHREAD_LIB_H__
 #define             __GLUETHREAD_LIB_H__
 
+typedef struct      _glthread
+{
+  struct _glthread  *left;
+  struct _glthread  *right;
+}                   glthread_t;
+
+void glthread_add_next(glthread_t *base_glthread, glthread_t *new_glthread);
+
+void glthread_add_before(glthread_t *base_glthread, glthread_t *new_glthread);
+
+void remove_glthread(glthread_t *glthread);
+
+void init_glthread(glthread_t *glthread);
+
+void glthread_add_last(glthread_t *base_glthread, glthread_t *new_glthread);
+
 #define             IS_GLTHREAD_LIST_EMPTY(glthreadptr)                                                                 \
                     ((glthreadptr)->right == 0 && (glthreadptr)->left == 0)
                     
@@ -27,21 +43,7 @@
 #define             GLTHREAD_GET_USER_DATA_FROM_OFFSET(glthreadptr, offset)     \
                     (void *)((char *)(glthreadptr) - offset)
 
-typedef struct      _glthread
-{
-  struct _glthread  *left;
-  struct _glthread  *right;
-}                   glthread_t;
 
-void glthread_add_next(glthread_t *base_glthread, glthread_t *new_glthread);
-
-void glthread_add_before(glthread_t *base_glthread, glthread_t *new_glthread);
-
-void remove_glthread(glthread_t *glthread);
-
-void init_glthread(glthread_t *glthread);
-
-void glthread_add_last(glthread_t *base_glthread, glthread_t *new_glthread);
 
 void delete_glthread_list(glthread_t *base_glthread);
 
@@ -52,11 +54,11 @@ void glthread_priority_insert(glthread_t *base_glthread,
                               int (*comp_fn)(void *, void *),
                               int offset);
                               
-  #if 0
-    void *gl_thread_search(glthread_t *base_glthread,
-                           void *(*thread_to_struct_fn)(glthread_t *),
-                           void *key,
-                           int (*comparison_fn)(void *, void *));
-  #endif
+#if 0
+  void *gl_thread_search(glthread_t *base_glthread,
+                         void *(*thread_to_struct_fn)(glthread_t *),
+                         void *key,
+                         int (*comparison_fn)(void *, void *));
+#endif
 
 #endif              // __GLUETHREAD_LIB_H__
