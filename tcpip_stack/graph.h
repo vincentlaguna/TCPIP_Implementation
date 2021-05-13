@@ -83,18 +83,22 @@ static inline int   get_node_intf_available_slot(node_t *node)
 // My Answer:
 static inline interface_t  *get_node_intf_by_name(node_t *node, char *if_name)
 {
-  interface_t *interface;
   int i;
+  interface_t *interface;
   
   for (i = 0; i < MAX_INTF_PER_NODE; i++)
   {
-    if (!interface)
-      return NULL;
-    if (strncmp(node->intf[i]->if_name, if_name, IF_NAME_SIZE) == 0)
-    {
-      node->intf[i] = interface;
+    // if (!interface) // <- MINE
+    //   return NULL;
+    // if (strncmp(node->intf[i]->if_name, if_name, IF_NAME_SIZE) == 0)
+    // {
+    //   node->intf[i] = interface;
+      interface = node->intf[i];
+      if(!interface) return NULL;
+      if(strncmp(interface->if_name, if_name, IF_NAME_SIZE) == 0)
+      {
       return interface;
-    }
+      }
   }
   return NULL;
 }
