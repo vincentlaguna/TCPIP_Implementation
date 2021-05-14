@@ -4,34 +4,34 @@
 #include  "utils.h"
 
 // Random number generator
-// static unsigned int hash_code(void *ptr, unsigned int size)
-// {
-//   unsigned int value = 0, i = 0;
-//   char *str = (char *)ptr;
+static unsigned int hash_code(void *ptr, unsigned int size)
+{
+  unsigned int value = 0, i = 0;
+  char *str = (char *)ptr;
   
-//   while(i < size)
-//   {
-//     value += *str;
-//     value *= 97;
-//     str++;
-//     i++;
-//   }
-//   return value;
-// }
+  while(i < size)
+  {
+    value += *str;
+    value *= 97;
+    str++;
+    i++;
+  }
+  return value;
+}
 
 // Heuristics; Assign a unique MAC address to interface
 void  interface_assign_mac_address(interface_t *interface)
 {
-  // node_t *node = interface->att_node;
+  node_t *node = interface->att_node;
   
-  // if(!node)
-  //   return;
+  if(!node)
+    return;
   
-  // unsigned int hash_code_value = 0;
-  // hash_code_value   =   hash_code(node->node_name, NODE_NAME_SIZE);
-  // hash_code_value  *=   hash_code(interface->if_name, IF_NAME_SIZE);
-  // memset(IF_MAC(interface), 0, sizeof(IF_MAC(interface)));
-  //memcpy(IF_MAC(interface), (char *)&hash_code_value, sizeof(unsigned int));
+  unsigned int hash_code_value = 0;
+  hash_code_value   =   hash_code(node->node_name, NODE_NAME_SIZE);
+  hash_code_value  *=   hash_code(interface->if_name, IF_NAME_SIZE);
+  memset(IF_MAC(interface), 0, sizeof(IF_MAC(interface)));
+  memcpy(IF_MAC(interface), (char *)&hash_code_value, sizeof(unsigned int));
   memset(IF_MAC(interface), 0, 48);
   // Need to review the following
   strcpy(IF_MAC(interface), interface->att_node->node_name);
