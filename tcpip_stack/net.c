@@ -77,6 +77,11 @@ bool_t  node_set_intf_ip_address(node_t *node, char *local_if,
   return TRUE;
 }
 
+bool_t  node_unset_intf_ip_address(node_t *node, char *local_if)
+{
+  return TRUE;
+}
+
 void  dump_node_nw_props(node_t *node)
 {
   printf("\nNode Name = %s\n", node->node_name);

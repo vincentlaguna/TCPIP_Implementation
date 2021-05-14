@@ -97,7 +97,7 @@ static inline interface_t  *get_node_intf_by_name(node_t *node, char *if_name)
       if(!interface) return NULL;
       if(strncmp(interface->if_name, if_name, IF_NAME_SIZE) == 0)
       {
-      return interface;
+        return interface;
       }
   }
   return NULL;
