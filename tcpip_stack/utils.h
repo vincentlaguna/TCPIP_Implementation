@@ -13,4 +13,6 @@ typedef   enum
 #define   UNSET_BIT(n, pos)     (n = n & ((1 << pos) ^ 0xFFFFFFFF))
 #define   SET_BIT(n, pos)       (n = n | 1 << pos)
 
+void      apply_mask(char *prefix, char mask, char *str_prefix);
+
 #endif // __UTILS_H__
