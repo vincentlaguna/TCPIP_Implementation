@@ -15,4 +15,6 @@ typedef   enum
 
 void      apply_mask(char *prefix, char mask, char *str_prefix);
 
+void      layer2_fill_with_brodcast_mac(char *mac_array);
+
 #endif // __UTILS_H__
