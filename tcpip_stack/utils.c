@@ -14,3 +14,13 @@ void  apply_mask(char *prefix, char mask, char *str_prefix)
   //i.e.: prefix = 122.1.1.1 -> mask(24) -> str_prefix stores 122.1.1.0
 }
 // Instructor Example:
+
+// A brodcast MAC address is a 6-byte MAC address with all the bits set to 1:
+// FF:FF:FF:FF:FF:FF
+// Write an API in utils.c/utils.h which will fill the 6-byte array passed as an argument
+// with MAC Broadcast Address.
+// My Answer:
+void layer2_fill_with_brodcast_mac(char *mac_array)
+{
+  
+}
