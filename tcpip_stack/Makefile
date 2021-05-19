@@ -25,6 +25,9 @@ topologies.o:topologies.c
 net.o:net.c
 	${CC} ${FLAGS} -c -I . net.c -o net.o
 	
+utils.o:utils.c
+	${CC} ${FLAGS} -c -I . utils.c -o utils.o
+	
 clean:
 	rm *.o
 	rm gluethread_lib/glthread.o
