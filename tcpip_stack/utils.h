@@ -12,6 +12,12 @@ typedef   enum
 #define   COMPLEMENT(num)       (num = num ^ 0xFFFFFFFF)
 #define   UNSET_BIT(n, pos)     (n = n & ((1 << pos) ^ 0xFFFFFFFF))
 #define   SET_BIT(n, pos)       (n = n | 1 << pos)
+// Assignment 5.3
+// Write a macro which evaluates to true if the mac address 
+// is BROADCAST mac address, otherwise FALSE.
+// The arg passed is an 6-byte array holding a mac address.
+// My Example:
+//#define IS_MAC_BROADCAST_ADDR(mac) ((mac) & (0xFFFFFFFF) ? 1 : 0)
 
 void      apply_mask(char *prefix, char mask, char *str_prefix);
 

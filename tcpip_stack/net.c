@@ -108,7 +108,11 @@ void  dump_intf_props(interface_t *interface)
          IF_MAC(interface)[2], IF_MAC(interface)[3],
          IF_MAC(interface)[4], IF_MAC(interface)[5]);
 }
-
+// Assignment 5.5
+// Write a below API in net.c/net.h which shall print the 
+// networking properties of all nodes and interfaces in a topology.
+// It should also print the name of nbr node on an interface of local node.
+// My example:
 void  dump_nw_graph(graph_t *graph)
 {
   node_t        *node;
@@ -133,3 +137,39 @@ void  dump_nw_graph(graph_t *graph)
     }
   } ITERATE_GLTHREAD_END(&graph->node_list, current);
 }
+// Assignment 5.4
+// Write a below API in net.h/net.c which returns the pointer
+// to local interface of a node such that this local interface
+// shares the same subnet as that of ip_addr passed as 2nd argument.
+// 
+// For example :
+// For node R0 containing two local interfaces with ip/mask configured 
+// as : 40.1.1.1/24 on eth0/4 and 20.1.1.1/24 on eth0/0,  
+// this API must return :
+// pointer to eth0/4 if ip_addr passed is 40.1.1.x, for all x [0-255]
+// pointer to eth0/0 if ip_addr passed is 20.1.1.x, for all x [0-255]
+// NULL otherwise.
+// My Example:
+interface_t  *node_get_matching_subnet_interface(node_t *node, char *ip_addr)
+{
+  
+}
+// Assignment 5.6
+// Write a function in net.h/net.c which converts an ip address in 
+// string form (A.B.C.D format) into its equivalent 32-bit integer form.
+// My Example: 
+unsigned int  convert_ip_from_str_to_int(char *ip_addr)
+{
+  
+}
+// Assignment 5.7
+// Write a function in net.h/net.c which converts an ip address in 
+// integer form into its equivalent dot decimal form (A.B.C.D format)
+// Output should be stored in the array output_buffer of size 16 bytes
+// passed as second argument.
+// My example:
+void  convert_ip_from_int_to_str(unsigned int ip_addr, char *output_buffer)
+{
+  
+}
+
