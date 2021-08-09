@@ -3,7 +3,7 @@
 
 // Assignment 5.1 - Function that applies a mask on prefix and stores
 // the result in str_prefix - Don't forget to modify the Makefile to compile it
-// My Answer:
+// My Answer: Needs Review and Completion 08092021VL
 void  apply_mask(char *prefix, char mask, char *str_prefix)
 {
   //prefix - is a pointer to a string that represents an IP address

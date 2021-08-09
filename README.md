@@ -2,7 +2,7 @@
 Repository created for Udemy Couse "TCP/IP Stack Implementation in C - Part A"
 
 Status as of 05-20-2021:
-- Working on Assignment 5 utils.c/h implementation...
+- Working on Assignment 5 - utils.c/h implementation...
 - Implementation of CLI library: At appendix E Section 2.155
 - Assignment 3 = Completed 4-23-2021
 - Ready to dive back into the next section of the course -> Complete Assignment 3
