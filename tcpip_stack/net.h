@@ -19,7 +19,7 @@ typedef struct        ip_add_
 
 typedef struct        mac_add_
 {
-  char                mac[6];
+  char                mac[8];
 } mac_add_t;
 
 typedef struct        node_nw_prop_

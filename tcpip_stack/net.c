@@ -23,7 +23,7 @@ static unsigned int hash_code(void *ptr, unsigned int size)
 void  interface_assign_mac_address(interface_t *interface)
 {
   node_t *node = interface->att_node;
-  int if_size  = sizeof(interface_t);
+  // int if_size  = sizeof(interface_t);
   
   if(!node)
     return;
@@ -32,11 +32,12 @@ void  interface_assign_mac_address(interface_t *interface)
   hash_code_value   =   hash_code(node->node_name, NODE_NAME_SIZE);
   hash_code_value  *=   hash_code(interface->if_name, IF_NAME_SIZE);
   memset(IF_MAC(interface), 0, sizeof(IF_MAC(interface)));
+  // memset(IF_MAC(interface), 0, 8);
   memcpy(IF_MAC(interface), (char *)&hash_code_value, sizeof(unsigned int));
-  memset(IF_MAC(interface), 0, if_size); // <- Questionable... 081322
+  // memset(IF_MAC(interface), 0, if_size); // <- Questionable... 081322
   // Need to review the following - Don't know when or why I put this here?... 081322
-  strcpy(IF_MAC(interface), interface->att_node->node_name);
-  strcat(IF_MAC(interface), interface->if_name);
+  // strcpy(IF_MAC(interface), interface->att_node->node_name);
+  // strcat(IF_MAC(interface), interface->if_name);
 }
 
 bool_t  node_set_device_type(node_t *node, unsigned int F)
@@ -158,7 +159,15 @@ void  dump_nw_graph(graph_t *graph)
 // My Example:
 interface_t  *node_get_matching_subnet_interface(node_t *node, char *ip_addr)
 {
+  unsigned int  i;
+  interface_t   *intf;
   
+  char          *intf_addr  = NULL;
+  char          mask;
+  char          intf_subnet[16];
+  char          subnet2[16];
+  
+  // For-loop
 }
 // Assignment 5.6
 // Write a function in net.h/net.c which converts an ip address in 
