@@ -3,9 +3,10 @@ CFLAGS=-g
 TARGET:test.exe
 
 OBJS=gluethread_lib/glthread.o	\
-		 graph.o										\
-		 topologies.o								\
+		 graph.o				\
+		 topologies.o			\
 		 net.o
+#Example x.o
 			
 test.exe:testapp.o ${OBJS}
 	${CC} ${CFLAGS} testapp.o ${OBJS} -o test.exe
@@ -27,8 +28,18 @@ net.o:net.c
 	
 utils.o:utils.c
 	${CC} ${FLAGS} -c -I . utils.c -o utils.o
+
+#Example
+#x.o:x.c
+#	${CC} ${FLAGS} -c -I . x.c -o x.o
 	
 clean:
 	rm *.o
 	rm gluethread_lib/glthread.o
 	rm *exe
+	
+all:
+	make
+	
+cleanall:
+	make clean

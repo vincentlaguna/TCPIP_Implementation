@@ -23,6 +23,7 @@ static unsigned int hash_code(void *ptr, unsigned int size)
 void  interface_assign_mac_address(interface_t *interface)
 {
   node_t *node = interface->att_node;
+  int if_size  = sizeof(interface_t);
   
   if(!node)
     return;
@@ -32,8 +33,8 @@ void  interface_assign_mac_address(interface_t *interface)
   hash_code_value  *=   hash_code(interface->if_name, IF_NAME_SIZE);
   memset(IF_MAC(interface), 0, sizeof(IF_MAC(interface)));
   memcpy(IF_MAC(interface), (char *)&hash_code_value, sizeof(unsigned int));
-  memset(IF_MAC(interface), 0, 48);
-  // Need to review the following
+  memset(IF_MAC(interface), 0, if_size); // <- Questionable... 081322
+  // Need to review the following - Don't know when or why I put this here?... 081322
   strcpy(IF_MAC(interface), interface->att_node->node_name);
   strcat(IF_MAC(interface), interface->if_name);
 }
@@ -56,7 +57,7 @@ bool_t  node_set_loopback_address(node_t *node, char *ip_addr)
   
   node->node_nw_prop.is_lb_addr_config = TRUE;
   strncpy(NODE_LO_ADDR(node), ip_addr, 16);
-  NODE_LO_ADDR(node)[16] = '\0';
+  NODE_LO_ADDR(node)[15] = '\0';
   
   return TRUE;
 }
@@ -70,7 +71,7 @@ bool_t  node_set_intf_ip_address(node_t *node, char *local_if,
     assert(0);
     
   strncpy(IF_IP(interface), ip_addr, 16);
-  IF_IP(interface)[16] = '\0';
+  IF_IP(interface)[15] = '\0';
   interface->intf_nw_props.mask = mask;
   interface->intf_nw_props.is_ipadd_config = TRUE;
   
@@ -98,6 +99,11 @@ void  dump_intf_props(interface_t *interface)
   if(interface->intf_nw_props.is_ipadd_config)
   {
     printf("\t IP Addr = %s/%u", IF_IP(interface), interface->intf_nw_props.mask);
+    
+    // printf("\t MAC : %u:%u:%u:%u:%u:%u\n",
+    //     IF_MAC(interface)[0], IF_MAC(interface)[1],
+    //     IF_MAC(interface)[2], IF_MAC(interface)[3],
+    //     IF_MAC(interface)[4], IF_MAC(interface)[5]);
   }
   else
   {

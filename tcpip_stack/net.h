@@ -19,7 +19,7 @@ typedef struct        ip_add_
 
 typedef struct        mac_add_
 {
-  char                mac[48];
+  char                mac[6];
 } mac_add_t;
 
 typedef struct        node_nw_prop_
@@ -28,7 +28,8 @@ typedef struct        node_nw_prop_
   // of the node and other features
   unsigned int        flags;
   //L3 Properties
-  bool_t              is_lb_addr_config;
+  bool_t              is_lb_addr_config; // If False == no need to 
+  //access the lb value below unless true
   ip_add_t            lb_addr; // Loop-back address of node
 } node_nw_prop_t;
 

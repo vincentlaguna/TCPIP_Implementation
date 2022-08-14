@@ -48,16 +48,16 @@ void insert_link_between_two_nodes(node_t *node1,
   int empty_intf_slot;
   // Plugin interface ends into Node*
   empty_intf_slot                   =  get_node_intf_available_slot(node1);
-  node1->intf[empty_intf_slot]     =  &link->intf1;
+  node1->intf[empty_intf_slot]      =  &link->intf1;
   
   empty_intf_slot                   =  get_node_intf_available_slot(node2);
-  node2->intf[empty_intf_slot]     =  &link->intf2;
+  node2->intf[empty_intf_slot]      =  &link->intf2;
 }
 
 void  dump_graph(graph_t *graph)
 {
-  glthread_t                           *curr;
-  node_t                               *node;
+  node_t                            *node;
+  glthread_t                        *curr;
   
   printf("Topology Name: %s\n", graph->topology_name);
   
@@ -73,7 +73,7 @@ void  dump_graph(graph_t *graph)
 void  dump_node(node_t *node)
 {
   unsigned int i                    =  0;
-  interface_t                          *intf;
+  interface_t                       *intf;
   
   printf("Node Name = %s : \n", node->node_name);
   
@@ -92,7 +92,9 @@ void  dump_interface(interface_t *interface)
   link_t *link                      =  interface->link;
   node_t *nbr_node                  =  get_nbr_node(interface);
   
-  printf(" Local Node: %s, Interface Name = %s, Nbr Node %s, cost = %u\n",
+  printf("Interface Name = %s\n\tNbr Node %s, Local Node : %s, cost = %u\n",
+           interface->if_name,
+           nbr_node->node_name,
            interface->att_node->node_name,
-           interface->if_name, nbr_node->node_name, link->cost);
+           link->cost);
 }
